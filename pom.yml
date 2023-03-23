@@ -1,0 +1,11 @@
+name:       Jaskier Parent POM
+artifactId: jaskier-parent-pom
+groupId:    io.github.stcarolas.jaskier
+version:    0.0.1
+
+modelVersion: 4.0.0
+packaging: pom
+
+modules:
+  - audd-api
+  - jaskier
