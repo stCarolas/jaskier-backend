@@ -13,7 +13,7 @@
 	<artifactId>jaskier</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>jaskier</name>
-	<description>twitch mucis bot</description>
+	<description>twitch music bot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -63,11 +63,73 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-					<groupId>io.rest-assured</groupId>
-					<artifactId>rest-assured</artifactId>
-					<version>5.3.0</version>
-					<scope>test</scope>
+			<groupId>org.immutables</groupId>
+			<artifactId>mongo</artifactId>
+			<version>2.9.2</version>
 		</dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>criteria-mongo</artifactId>
+            <version>2.9.3</version>
+        </dependency>
+		<dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.3.0</version>
+            <scope>test</scope>
+		</dependency>
+		<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter</artifactId>
+				<version>5.8.1</version>
+				<scope>test</scope>
+		</dependency>
+		<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>testcontainers</artifactId>
+				<version>1.17.6</version>
+				<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>mongodb</artifactId>
+			<version>1.17.6</version>
+			<scope>test</scope>
+	</dependency>
+		<dependency>
+				<groupId>org.testcontainers</groupId>
+				<artifactId>junit-jupiter</artifactId>
+				<version>1.17.6</version>
+				<scope>test</scope>
+		</dependency>
+		<dependency>
+            <groupId>io.github.centrifugal</groupId>
+            <artifactId>centrifuge-java</artifactId>
+            <version>0.2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+				<dependency>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-oauth2-client</artifactId>
+				</dependency>
 	</dependencies>
 
 	<build>
