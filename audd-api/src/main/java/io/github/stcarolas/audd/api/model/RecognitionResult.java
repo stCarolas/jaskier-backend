@@ -10,11 +10,13 @@ import io.vavr.collection.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@ToString
 public class RecognitionResult {
     @JsonProperty("radio_id")
     private String radioId;

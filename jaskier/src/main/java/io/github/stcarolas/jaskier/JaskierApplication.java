@@ -1,11 +1,5 @@
 package io.github.stcarolas.jaskier;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import com.mongodb.reactivestreams.client.MongoClients;
-import com.mongodb.reactivestreams.client.MongoDatabase;
-
 import org.bson.codecs.configuration.CodecRegistry;
 import org.immutables.criteria.backend.Backend;
 import org.immutables.criteria.mongo.MongoBackend;
@@ -18,7 +12,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import io.github.stcarolas.audd.api.AudDClient;
 import io.vavr.jackson.datatype.VavrModule;
+
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.mongodb.reactivestreams.client.MongoClients;
+import com.mongodb.reactivestreams.client.MongoDatabase;
 
 @SpringBootApplication
 public class JaskierApplication {
@@ -48,6 +49,11 @@ public class JaskierApplication {
         MongoDatabase mongo = MongoClients.create(uri).getDatabase("jaskier").withCodecRegistry(registry);
         Backend backend = new MongoBackend(MongoSetup.of(mongo));
         return backend;
+    }
+
+    @Bean
+    public AudDClient audDClient(@Value("${audD.key}") String key){
+        return new AudDClient(key);
     }
 
 }

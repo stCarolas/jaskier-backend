@@ -1,0 +1,5 @@
+audD.key: test
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
