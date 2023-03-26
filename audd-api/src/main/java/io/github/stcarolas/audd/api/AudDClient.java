@@ -2,7 +2,6 @@ package io.github.stcarolas.audd.api;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import feign.Feign;
 import feign.form.FormEncoder;
 import feign.jackson.JacksonDecoder;
@@ -20,13 +19,15 @@ public class AudDClient {
     public AudDClient(String apiToken) {
         this.token = apiToken;
         ObjectMapper mapper = mapper();
-        api = Feign.builder()
-            .encoder(new FormEncoder(new JacksonEncoder(mapper)))
-            .decoder(new JacksonDecoder(mapper))
-            .target(AudDApi.class, "https://api.audd.io");
+        api =
+            Feign
+                .builder()
+                .encoder(new FormEncoder(new JacksonEncoder(mapper)))
+                .decoder(new JacksonDecoder(mapper))
+                .target(AudDApi.class, "https://api.audd.io");
     }
 
-    private ObjectMapper mapper(){
+    private ObjectMapper mapper() {
         var mapper = new ObjectMapper();
         mapper.registerModule(new VavrModule());
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
@@ -45,8 +46,9 @@ public class AudDClient {
         api.deleteStream(token, id);
     }
 
-    public List<Stream> listStreams(){
-        return Option.of(api.getStreams(token).getResult())
+    public List<Stream> listStreams() {
+        return Option
+            .of(api.getStreams(token).getResult())
             .map(List::ofAll)
             .getOrElse(List.empty());
     }

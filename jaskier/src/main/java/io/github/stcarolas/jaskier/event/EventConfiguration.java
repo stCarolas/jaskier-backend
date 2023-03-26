@@ -11,5 +11,4 @@ public class EventConfiguration {
     public EventRepository eventRepository(Backend backend) {
         return new EventRepository(backend);
     }
-
 }

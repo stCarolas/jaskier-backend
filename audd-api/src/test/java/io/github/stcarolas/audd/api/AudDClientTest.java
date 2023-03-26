@@ -3,10 +3,9 @@ package io.github.stcarolas.audd.api;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
-
 import io.github.stcarolas.audd.api.model.Stream;
 import io.vavr.collection.List;
+import org.junit.jupiter.api.Test;
 
 public class AudDClientTest {
 

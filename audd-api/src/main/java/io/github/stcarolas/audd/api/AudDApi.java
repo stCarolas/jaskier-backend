@@ -7,7 +7,6 @@ import io.github.stcarolas.audd.api.model.ResponseWrapper;
 import io.github.stcarolas.audd.api.model.Stream;
 
 public interface AudDApi {
-
     @RequestLine("POST /addStream")
     @Headers("Content-Type: application/x-www-form-urlencoded")
     public void addStream(
@@ -37,5 +36,4 @@ public interface AudDApi {
     public ResponseWrapper<Stream> getStreams(
         @Param("api_token") String apiToken
     );
-
 }

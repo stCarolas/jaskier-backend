@@ -1,15 +1,12 @@
 package io.github.stcarolas.jaskier.streamer;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.github.stcarolas.audd.api.AudDClient;
 import java.util.UUID;
-
 import org.immutables.criteria.Criteria;
 import org.immutables.criteria.repository.sync.SyncRepository;
 import org.immutables.value.Value;
-
-import io.github.stcarolas.audd.api.AudDClient;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Value.Immutable
 @Criteria
@@ -33,5 +30,4 @@ public abstract class StreamerImpl extends Streamer {
         repository.delete(StreamerImplCriteria.streamerImpl.id.is(id()));
         audDClient.deleteStream(id());
     }
-
 }

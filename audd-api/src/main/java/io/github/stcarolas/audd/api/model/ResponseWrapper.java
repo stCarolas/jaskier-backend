@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResponseWrapper<T> {
+
     private String status;
     private List<T> result;
 }
