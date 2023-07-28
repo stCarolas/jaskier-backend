@@ -3,13 +3,14 @@ package io.github.stcarolas.jaskier.streamer.api;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.jupiter.api.Test;
+
 import io.github.stcarolas.audd.api.AudDClient;
 import io.github.stcarolas.audd.api.model.Stream;
 import io.github.stcarolas.jaskier.streamer.ImmutableStreamerImpl;
 import io.github.stcarolas.jaskier.streamer.StreamerImpl;
 import io.vavr.collection.List;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.jupiter.api.Test;
 
 public class NewStreamerRequestTest {
 
@@ -23,7 +24,7 @@ public class NewStreamerRequestTest {
         when(audDClient.listStreams()).thenReturn(List.of(new Stream()));
         ImmutableStreamerImpl expectedCreatedStreamer = ImmutableStreamerImpl
             .builder()
-            .id(1)
+            .id(2)
             .url(streamUrl)
             .auddKey(auddKey)
             .twitchId(twitchId)

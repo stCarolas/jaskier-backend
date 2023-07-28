@@ -1,18 +1,18 @@
 package io.github.stcarolas.jaskier.streamer.api;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.immutables.value.Value;
+
 import io.github.stcarolas.audd.api.AudDClient;
 import io.github.stcarolas.jaskier.streamer.ImmutableStreamerImpl;
 import io.github.stcarolas.jaskier.streamer.Streamer;
 import io.github.stcarolas.jaskier.streamer.StreamerImpl;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import lombok.NonNull;
-import org.immutables.criteria.Criteria;
-import org.immutables.value.Value;
 
 @Value.Immutable
-@Criteria
-@Criteria.Repository
 @JsonSerialize(as = ImmutableNewStreamerRequest.class)
 @JsonDeserialize(as = ImmutableNewStreamerRequest.class)
 public abstract class NewStreamerRequest extends Streamer {

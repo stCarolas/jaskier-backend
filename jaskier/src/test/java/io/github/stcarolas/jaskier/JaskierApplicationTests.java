@@ -3,7 +3,7 @@ package io.github.stcarolas.jaskier;
 import static io.restassured.RestAssured.when;
 import static io.restassured.RestAssured.with;
 
-import io.restassured.RestAssured;
+import org.immutables.criteria.Criteria;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +12,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.utility.DockerImageName;
+
+import io.restassured.RestAssured;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class JaskierApplicationTests {

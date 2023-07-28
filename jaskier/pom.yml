@@ -1,0 +1,72 @@
+modelEncoding: UTF-8
+modelVersion: 4.0.0
+
+parent:
+  artifactId: spring-boot-starter-parent
+  groupId: org.springframework.boot
+  relativePath: ''
+  version: 3.0.4
+
+groupId: io.github.stcarolas
+artifactId: jaskier
+version: 0.0.1-SNAPSHOT
+packaging: jar
+name: jaskier
+description: twitch music bot
+
+properties:
+  java.version: 17
+
+dependencies:
+- {groupId: org.springframework.boot, artifactId: spring-boot-starter-actuator}
+- {groupId: org.springframework.boot, artifactId: spring-boot-starter-web}
+- {groupId: org.projectlombok, artifactId: lombok, version: 1.18.26, optional: true}
+- {groupId: org.seleniumhq.selenium, artifactId: selenium-java, version: 4.8.0}
+- {groupId: io.github.bonigarcia, artifactId: webdrivermanager, version: 5.3.2}
+- {groupId: org.springframework.boot, artifactId: spring-boot-starter-test, scope: test}
+- {groupId: io.github.stcarolas, artifactId: audd-api, version: 0.0.1}
+- {groupId: org.immutables, artifactId: value, version: 2.9.3, scope: provided}
+- {groupId: io.socket, artifactId: socket.io-client, version: 2.1.0}
+- {groupId: org.immutables, artifactId: mongo, version: 2.9.3}
+- {groupId: org.immutables, artifactId: criteria-mongo, version: 2.9.3}
+- {groupId: org.springframework.boot, artifactId: spring-boot-starter-websocket, version: 3.0.4}
+- {groupId: io.rest-assured, artifactId: rest-assured, version: 5.3.0, scope: test}
+- {groupId: org.junit.jupiter, artifactId: junit-jupiter, version: 5.8.1, scope: test}
+- {groupId: org.testcontainers, artifactId: testcontainers, version: 1.17.6, scope: test}
+- {groupId: org.testcontainers, artifactId: mongodb, version: 1.17.6, scope: test}
+- {groupId: org.testcontainers, artifactId: junit-jupiter, version: 1.17.6, scope: test}
+- {groupId: org.mockito, artifactId: mockito-core, version: 5.2.0, scope: test}
+
+build:
+  plugins:
+
+  - groupId:    org.apache.maven.plugins
+    artifactId: maven-compiler-plugin
+    version:    3.8.1
+    configuration:
+      compilerArguments:
+        AaddGeneratedAnnotation: false
+      dependencies:
+        - groupId:    org.ow2.asm
+          artifactId: asm
+          version:    7.3.1
+          type:       jar
+
+      annotationProcessorPaths:
+        - groupId:    org.projectlombok
+          artifactId: lombok
+          version:    1.18.22
+
+        - groupId:    org.immutables
+          artifactId: value
+          version:    2.9.3
+
+        - groupId:    io.github.stcarolas.enriched-beans
+          artifactId: enriched-beans-immutables-criteria-spring
+          version:    "0.4.1-SNAPSHOT"
+
+  - groupId: org.springframework.boot
+    artifactId: spring-boot-maven-plugin
+    configuration:
+      excludes:
+      - {groupId: org.projectlombok, artifactId: lombok}
